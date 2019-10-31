@@ -1,0 +1,28 @@
+syntax = "proto3";
+option java_package = "org.deepak.grpc.protoFiles";
+
+service products{
+	rpc getProduct(prodId) returns (APIResponse);
+	
+	rpc addProduct(product) returns (APIResponse);
+	
+	rpc deleteProduct(prodId) returns (APIResponse);
+}
+
+message prodId{
+	int32 id = 1;
+}
+
+message product{
+	string prodName = 1;
+	int32 prodPrice = 2;
+	int32 prodStock = 3;
+}
+
+message APIResponse{
+	string responseMessage = 1;
+	int32 messageCode = 2;
+}
+
+
+
